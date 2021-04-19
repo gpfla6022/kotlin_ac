@@ -23,5 +23,16 @@ fun main(){
             abc[i] = readLine()!!.trim().toInt()
         }
 
+    var sum = 0;
+
+    for (i in 0 until b) {
+        sum += abc[i]
+    }
+
+    val avg = sum / b
+
+    println("입력하신 숫자의 합은 $sum 입니다.")
+    println("입력하신 숫자의 합은 $avg 입니다.")
+
     println("== 프로그램  끝==")
 }
