@@ -32,7 +32,7 @@ fun main(){
     val avg = sum / b
 
     println("입력하신 숫자의 합은 $sum 입니다.")
-    println("입력하신 숫자의 합은 $avg 입니다.")
+    println("입력하신 숫자의 평균은 $avg 입니다.")
 
     println("== 프로그램  끝==")
 }
