@@ -10,8 +10,6 @@ fun main(){
 
     bubbleSort(numbers)
 
-
-
     print("오름차순 정렬 결과 : ")
     printNumbers(numbers)
 
