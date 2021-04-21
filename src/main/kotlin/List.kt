@@ -1,24 +1,26 @@
 /*
-입력데이터1
------------
+입력데이터 1
+-------------
 3
 aa
 30
 m
 bb
 10
-W
+w
 cc
 20
-M
- */
+m
+
+*/
+
 fun main() {
     println("== 회원관리 프로그램 시작 ==")
 
     print("회원 수 : ")
     val membersCount = readLine()!!.trim().toInt()
 
-    val members:Array<Memb> = Array<Memb?>(membersCount) { null } as Array<Memb>
+    val members: Array<Member> = Array<Member?>(membersCount) { null } as Array<Member>
 
     println("= ${membersCount}명의 회원 정보를 입력합니다. =")
 
@@ -31,12 +33,10 @@ fun main() {
         print("${i + 1}번째 회원의 성별(M/W) : ")
         val gender = readLine()!!.trim()[0]
 
-        members[i] = Memb(id, name, age, gender)
+        members[i] = Member(id, name, age, gender)
     }
 
     sortMembersByAgeAsc(members)
-
-
 
     println("= 입력하신 회원 리스트 =")
     println("번호 / 나이 / 성별 / 이름")
@@ -48,38 +48,31 @@ fun main() {
     println("== 회원관리 프로그램 끝 ==")
 }
 
-fun isMemberBiggerThan(member1: Membs1, member2: Membs1): Boolean {
-    return member1.age >  member2.age
-
+fun isMemberBiggerThan(member1: Member, member2: Member): Boolean {
+    return member1.age > member2.age
 }
 
-fun sortMembersByAgeAsc(members: Array<Memb>) {
-    println("정렬 시작")
-
+fun sortMembersByAgeAsc(members: Array<Member>) {
     val maxDepth = members.size - 1
 
-    for ( depth in maxDepth downTo 1) {
+    for (depth in maxDepth downTo 1) {
 
-        for ( i in 0 until depth) {
-            if ( isMemberBiggerThan(members[i], members[i + 1])) {
-                members[i] = members[i + 1].also {members[i + 1] = members[i]}
+        for (i in 0 until depth) {
+            if (isMemberBiggerThan(members[i], members[i + 1])) {
+                members[i] = members[i + 1].also { members[i + 1] = members[i] }
             }
         }
     }
-
-    println("정렬 끝")
 }
 
-
-
-data class Memb(
+data class Member(
     val id: Int,
     val name: String,
     val age: Int,
     val gender: Char
 ) {
 
-    fun getGenderKor(): String = when(gender) {
+    fun getGenderKor(): String = when (gender) {
         'w' -> "여자"
         else -> "남자"
     }
