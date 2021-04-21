@@ -48,7 +48,7 @@ fun main() {
     println("== 회원관리 프로그램 끝 ==")
 }
 
-fun isMemberBiggerThan(member1: Memb, member2: Memb): Boolean {
+fun isMemberBiggerThan(member1: Membs1, member2: Membs1): Boolean {
     return member1.age >  member2.age
 
 }
